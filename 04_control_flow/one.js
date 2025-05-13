@@ -41,10 +41,10 @@ const debitCard = true
 const loggedInFromGoogle = false
 const loggedInFromEmail = true
 
-if (userLoggedIn && debitCard) {
+if (userLoggedIn && debitCard) {          // AND Gate function...
     console.log("You can logged In and purchase the course ")
 }
 
-if (loggedInFromEmail || loggedInFromGoogle) {
+if (loggedInFromEmail || loggedInFromGoogle) {  // OR Gate function..
     console.log("logged In")
 }
