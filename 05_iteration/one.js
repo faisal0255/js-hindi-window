@@ -44,14 +44,22 @@ for (const element of arr) {
 const greeting = "Hello World"
 
 for (const greet of greeting) {
-//  console.log(`This is greeting from me ${greet}`)
-// }
+ // console.log(`This is greeting from me ${greet}`)
+}
 
 const myName = "Faisal Raza"
 
-for (const letters of myName) {
-   if (letters === " ") {         // skipping the space between two name....
-    continue;
-   }
-    console.log(letters);  
+for (const element of myName) {
+    if (element === " ") {
+        continue;
+    }
+    //console.log(element);
 }
+
+// for in loop
+
+const programming = ["JavaScript","C++" , "Html", "Java"]
+
+for (const key in programming) {
+        console.log(`${key} is for ${programming[key]}`)
+    }
