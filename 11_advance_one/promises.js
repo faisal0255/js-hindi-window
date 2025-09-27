@@ -1,32 +1,32 @@
-// const promiseOne = new Promise (function(resolve,reject) {
-//     setTimeout(function() {
-//         console.log("this is the first promise")
-//     }, 1000);
-//     resolve();
-// });
+const promiseOne = new Promise (function(resolve,reject) {
+    setTimeout(function() {
+        console.log("this is the first promise")
+    }, 1000);
+    resolve();
+});
 
-// promiseOne.then(function(){
-//     console.log("promise one accepted");
-// });
+promiseOne.then(function(){
+    console.log("promise one accepted");
+});
 
-// const promiseTwo = new Promise (function(resolve, reject) {
-//     setTimeout(function(){
-//         let error = false;
-//         if(!error) {
-//             resolve({username:"faisal raza", pass:"faisal123"})
-//         } else {
-//             reject('ERROR: Something is wrong')
-//         }
-//     },1000)
-// })
+const promiseTwo = new Promise (function(resolve, reject) {
+    setTimeout(function(){
+        let error = false;
+        if(!error) {
+            resolve({username:"faisal raza", pass:"faisal123"})
+        } else {
+            reject('ERROR: Something is wrong')
+        }
+    },1000)
+})
 
-// promiseTwo.then(function(user) {
-//     console.log(user);
-//     return user.username
-// })
-// .then((username) => console.log(username))
-// .catch((err)=> console.log(err))
-// .finally(()=> console.log("Answer is here"))
+promiseTwo.then(function(user) {
+    console.log(user);
+    return user.username
+})
+.then((username) => console.log(username))
+.catch((err)=> console.log(err))
+.finally(()=> console.log("Answer is here"))
 
 const promiseThree = new Promise (function(resolve,reject) {
     setTimeout(function(){
@@ -49,3 +49,30 @@ async function consumePromiseThree() {
 }
 
 consumePromiseThree();
+
+// Fetch by using .then & .catch method
+
+fetch('https://jsonplaceholder.typicode.com/users')
+.then((response) => {
+    return response.json()
+})
+.then((data) => {
+    console.log(data);
+})
+.catch((error) => {
+    console.log(error)
+})
+
+// Fetch using async function...
+
+async function getAllUsers() {
+    try {
+        const response = await fetch ('https://jsonplaceholder.typicode.com/users')
+        const data = await response.json()
+        console.log(data);
+    } catch (error) {
+        console.log("E:",error);
+    }
+}
+
+getAllUsers();
